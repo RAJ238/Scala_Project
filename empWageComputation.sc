@@ -20,22 +20,23 @@ object empWageComputation {
             print("    "+empName+" has worked part time today.")
             val wph=20
             val hr=4
+            val dayType="part"
             totalHrs+=hr
-            val wage=wph*hr
-            totalWage+=wage
-            println("So, part time wage of "+empName+" is "+wage)
+            WorkingHours(wph,hr,dayType,totalHrs,empName)
           case _=>
             val wph=20
             val hr=8
+            val dayType="full"
             totalHrs+=hr
-            val wage=wph*hr
-            totalWage+=wage
-            println("Daily wage of "+empName+" is "+wage)}
+            WorkingHours(wph,hr,dayType,totalHrs,empName)
+            }
       case _=> println("Day "+day+": "+empName+" is absent today")}
       day+=1
-    }
-    if(totalWage>2000)
-      println(empName+", you were present for "+presentDay+" days and the total monthly wage is 2000")
-    else
-      println(empName+", you were present for "+presentDay+" days and the total monthly wage is "+totalWage)
-  }}
+    }}
+    def WorkingHours( wph:Int, hr:Int, s:String,totalHrs:Int,empName:String): Unit ={
+      var wage=wph*hr
+      if(s=="part"){
+        println("So, part time wage of "+empName+" is "+wage)}
+      else{
+        println("Daily wage of "+empName+" is "+wage)}}
+}
