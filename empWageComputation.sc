@@ -5,6 +5,7 @@ object empWageComputation {
     val rd=scala.util.Random
     var day=1
     var presentDay=0
+    var wage=0
     var totalWage=0
     var totalHrs=0
     var empName="Raj"
@@ -22,21 +23,32 @@ object empWageComputation {
             val hr=4
             val dayType="part"
             totalHrs+=hr
-            WorkingHours(wph,hr,dayType,totalHrs,empName)
+            wage=WorkingHours(wph,hr,dayType,totalHrs,empName)
+            totalWage+=wage
           case _=>
             val wph=20
             val hr=8
             val dayType="full"
             totalHrs+=hr
-            WorkingHours(wph,hr,dayType,totalHrs,empName)
+            wage=WorkingHours(wph,hr,dayType,totalHrs,empName)
+            totalWage+=wage
             }
       case _=> println("Day "+day+": "+empName+" is absent today")}
       day+=1
-    }}
-    def WorkingHours( wph:Int, hr:Int, s:String,totalHrs:Int,empName:String): Unit ={
+    }
+    if(totalWage>2000){
+      println("_______________________________________________________________")
+      println(empName+", you were present for "+presentDay+" days and your total monthly wage earned is 2000")
+      println("_______________________________________________________________")}
+    else{
+      println("_______________________________________________________________")
+      println(empName+", you were present for "+presentDay+" days and your total monthly wage earned is "+totalWage)
+      println("_______________________________________________________________")}}
+    def WorkingHours( wph:Int, hr:Int, s:String,totalWage:Int,empName:String): Int ={
       var wage=wph*hr
       if(s=="part"){
         println("So, part time wage of "+empName+" is "+wage)}
       else{
-        println("Daily wage of "+empName+" is "+wage)}}
+        println("Daily wage of "+empName+" is "+wage)}
+    wage}
 }
