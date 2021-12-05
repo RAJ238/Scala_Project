@@ -3,24 +3,21 @@ object empWageComputation {
     println("    Welcome to Employee Wage Computation Program    ")
     println("_______________________________________________________________    ")
     val rd=scala.util.Random
-    var(empName,atd,empPartTime,empDays)=("Raj",rd.nextBoolean(),rd.nextBoolean(),rd.nextInt(20))
-    if(atd)
-      {println("The employee "+empName+" is present today")
-        if(empPartTime){
-          print(empName+" has worked part time today.")
-          var wph=20
-          var hr=4
-          var wage=wph*hr
-          println("The daily part time wage of "+empName+" is "+wage)
-
-      }
-        else{
-        var wph=20
-        var hr=8
-        var wage=wph*hr
-        println("The daily wage of "+empName+" is "+wage)
-      }}
-    else
-      println("The employee "+empName+" is absent today")
-  }
-}
+    var(empName,atd,empPartTime)=("Raj",rd.nextBoolean(),rd.nextBoolean())
+    atd match{
+      case true=>
+        println("The employee "+empName+" is present today")
+        empPartTime match{
+          case true=>
+            print(empName+" has worked part time today.")
+            val wph=20
+            val hr=4
+            val wage=wph*hr
+            println("The daily part time wage of "+empName+" is "+wage)
+          case _=>
+            val wph=20
+            val hr=8
+            val wage=wph*hr
+            println("The daily wage of "+empName+" is "+wage)}
+      case _=> println("The employee "+empName+" is absent today")
+  }}}
