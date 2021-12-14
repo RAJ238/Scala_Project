@@ -6,12 +6,12 @@ object userRegistration {
     val lastNamePattern="^[A-Z][a-z]{2}$".r    //LastName Registration Pattern
     val emailRegistrationPattern="^([\\w\\+\\_\\-]){3}(\\.)?([\\d\\w\\+\\_\\-]{0,3})@([\\d\\w]+)\\.([a-z]{2,3})(\\.[a-z]{2,3})?$".r  //E-Mail Registration Pattern
     val phoneNumberPattern="^[\\d]{1,2}\\s[\\d]{10}$".r      //Phone Number Registration Pattern
-    val passwordPattern="^[A-Z][\\w\\W\\d]{6}[0-9]$".r
+    val passwordPattern="^[A-Z](\\w\\W\\d){5}[\\W\\D][0-9]$".r
     var firstName="Raj"
     var lastName="Joe"
     var email="raj.joe@gmail.com.in"
     var number="91 1234567892"
-    var password="Rajjon23"
+    var password="Rajjo@23"
     breakable{while(true){
       if(firstName.matches(firstNamePattern.toString)){
         break
